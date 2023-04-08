@@ -22,6 +22,44 @@ public class Stack {
         top = node;
     }
 
+    public boolean isEmpty() {
+        // return value if top is null then true
+        return top == null;
+    }
+
+    //create a method peek
+
+    public int peek() {
+
+        // if isEmpty method is true then return top element
+        if (!isEmpty()) {
+            return top.data;
+        }
+
+        else {
+
+            System.out.println("stack is empty.");
+
+            return -1;
+        }
+
+    }
+    public void pop() {
+
+        //while loop is used if Top is not null then peek the element.
+
+        while (top != null) {
+
+            System.out.println("this is peak now :: " + peek());
+
+            top = top.next;
+
+            System.out.println("one item removed from stack...");
+        }
+        // all the elements are removed then print stack is empty
+        System.out.println("now stack is empty :: ");
+    }
+
     /*
      *  create method name as printStack
      */
@@ -43,25 +81,15 @@ public class Stack {
         }
     }
     public static void main(String[] args) {
-        /*
-         * create object for Stack class.
-         * object name is stack operation
-         */
-
         Stack stackoperation = new Stack();
 
-        /*
-         * calling the method from object name
-         * objectname.methodname();
-         */
-
         stackoperation.push(70);
-
         stackoperation.push(30);
-
         stackoperation.push(56);
-
+        stackoperation.printStack();
+        stackoperation.pop();
         stackoperation.printStack();
 
     }
+
 }
